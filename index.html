@@ -66,6 +66,20 @@
             border-radius: 8px;
         }
 
+        .celebration-image {
+            margin-top: 2rem;
+            max-width: 150px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            display: none;
+        }
+
+        .celebration-image img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
         .github-link {
             position: fixed;
             bottom: 20px;
@@ -102,13 +116,16 @@
 
 <body>
     <div class="container">
-        <div class="title">距離阿玖出獄還剩：</div>
+        <div class="title" id="title">距離阿玖出獄還剩：</div>
         <div class="countdown" id="timer"></div>
-        <div class="encouragement">阿玖加油</div>
-        <div class="video-container">
+        <div class="encouragement" id="encouragement">阿玖加油</div>
+        <div class="video-container" id="video-container">
             <video autoplay loop muted playsinline>
                 <source src="happycadogt-displaying.mp4" type="video/mp4">
             </video>
+        </div>
+        <div class="celebration-image" id="celebration">
+            <img src="nice.webp" alt="Celebration">
         </div>
     </div>
 
@@ -118,6 +135,7 @@
 
     <script>
         const targetDate = new Date('2026-03-07T00:00:00+08:00').getTime();
+        // const targetDate = new Date(Date.now() - 1000).getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -125,6 +143,10 @@
 
             if (distance < 0) {
                 document.getElementById('timer').textContent = '🎉阿玖出獄啦！';
+                document.getElementById('title').style.display = 'none';
+                document.getElementById('encouragement').style.display = 'none';
+                document.getElementById('video-container').style.display = 'none';
+                document.getElementById('celebration').style.display = 'block';
                 return;
             }
 
