@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: 'Courier New', monospace;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif;
             background: #0a0a0a;
             color: #fff;
             display: flex;
@@ -38,6 +38,24 @@
             letter-spacing: 0.05em;
         }
 
+        .github-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.9rem;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .github-link:hover {
+            opacity: 1;
+        }
+
+        .github-link a {
+            color: #fff;
+            text-decoration: none;
+        }
+
         @media (max-width: 768px) {
             .title {
                 font-size: 1.2rem;
@@ -56,15 +74,19 @@
         <div class="countdown" id="timer"></div>
     </div>
 
+    <div class="github-link">
+        <a href="https://github.com/seriaati/zest-countdown" target="_blank">GitHub</a>
+    </div>
+
     <script>
-        const targetDate = new Date('2026-03-07T00:00:00').getTime();
+        const targetDate = new Date('2026-03-07T00:00:00+08:00').getTime();
 
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
 
             if (distance < 0) {
-                document.getElementById('timer').textContent = '0 天 00 時 00 分 00 秒';
+                document.getElementById('timer').textContent = '阿玖出獄啦！';
                 return;
             }
 
